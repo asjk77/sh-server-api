@@ -1,0 +1,15 @@
+{
+  "name": "sh-api",
+  "version": "1.0.0",
+  "description": "sh_server_api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HwangSanho",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "jest": "^26.6.3"
+  }
+}

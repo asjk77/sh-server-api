@@ -1,0 +1,57 @@
+/*******************************************************************************
+* File Name      : post.js                                                     *
+* Created Date   : Thursday, May 20th 2021, 7:39:29 pm                         *
+* Author         : Hwang SanHo                                                 *
+* Email          : tksgh1000@naver.com                                         *
+* Copyright (c) 2021 San Form Co.                                              *
+*******************************************************************************/
+
+// Description : post 관련 api 를 제공합니다.
+
+import axios from "axios";
+import { ENDPOINT } from "./config";
+
+/**
+ * 글을 작성합니다.
+ * @param {String} email 
+ * @param {String} passwd 
+ * 
+ * @returns 만약 오류가 발생하였을경우 false 아닐 경우 response 을 반환합니다.
+ */
+export async function writePost(
+    title,
+    content,
+) {
+    try {
+        const response = await axios.post(
+        ENDPOINT + '/post/new',
+        { title, content }
+        );
+
+        return response;
+    } catch ( error ) {
+        console.log( error );
+    }
+    return false;
+}
+
+/**
+ * 글을 얻습니다. 10개
+ * @param {String} email 
+ * @param {String} passwd 
+ * @returns 만약 오류가 발생하였을 경우 false 아닐경우 response 을 반환합니다.
+ */
+
+export async function showPosts( 
+) {
+    try {
+        const response = await axios.post(
+        ENDPOINT + '/post/show',
+        { email, passwd }
+        );
+        return response;
+    } catch ( error ) {
+        console.log( error );
+    }
+    return false;
+}
