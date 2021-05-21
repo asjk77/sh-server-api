@@ -1,5 +1,5 @@
 {
-  "name": "sh-api",
+  "name": "sh-server-api",
   "version": "1.0.0",
   "description": "sh_server_api",
   "main": "index.js",
