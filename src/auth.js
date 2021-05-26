@@ -19,63 +19,41 @@ import { ENDPOINT } from "./config";
  * @param {String} lastname 
  * @param {String} address 
  * 
- * @returns 만약 오류가 발생하였을경우 false 아닐 경우 response 을 반환합니다.
+ * @returns axios.Promise 
  */
-export async function register(
+export function register(
     email,
     passwd,
     firstname,
     lastname,
     address
 ) {
-    var result = {}
-    try {
-        const response = await axios.post(
-        ENDPOINT + '/auth/login',
+        return axios.post(
+        ENDPOINT + '/auth/register',
         { email, passwd, firstname, lastname, address }
         );
-        return response;
-    } catch ( error ) {
-        console.log( error );
-    }
-    return false;
 }
 
 /**
  * 로그인합니다.
  * @param {String} email 
  * @param {String} passwd 
- * @returns 만약 오류가 발생하였을 경우 false 아닐경우 response 을 반환합니다.
+ * @returns axios.Promise 
  */
 
-export async function login( 
+export function login( 
     email,
     passwd
 ) {
-    try {
-        const response = await axios.post(
-        ENDPOINT + '/auth/login',
-        { email, passwd }
-        );
-        return response;
-    } catch ( error ) {
-        console.log( error );
-    }
-    return false;
+        return axios({method: 'post', url: ENDPOINT + '/auth/login', data: { "email" : email, "passwd": passwd } });
+
 }
 
 /**
  * 로그아웃 합니다.
- * @returns 만약 오류가 발생하였을 경우 false 아닐경우 response 을 반환합니다.
+ * @returns axios.Promise 
  */
 
 export async function logout() {
-    try {
-        const response = await axios.get( ENDPOINT + '/auth/logout' );
-        return response;
-    } catch( error )
-    {
-        console.log( error );
-    }
-    return false;
+    return axios.get( ENDPOINT + '/auth/logout' );
 }

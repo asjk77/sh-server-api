@@ -8,5 +8,6 @@
 
 // Description : mainModule
 
-const VALUE = 1;
-module.exports = VALUE
+exports.AuthApi = require('./src/auth');
+
+exports.PostApi = require('./src/post');

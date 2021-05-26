@@ -15,43 +15,30 @@ import { ENDPOINT } from "./config";
  * 글을 작성합니다.
  * @param {String} email 
  * @param {String} passwd 
+ * @returns 만약 오류가 발생하였을 경우 false 아닐경우 response 을 반환합니다.
  * 
- * @returns 만약 오류가 발생하였을경우 false 아닐 경우 response 을 반환합니다.
  */
 export async function writePost(
     title,
     content,
 ) {
-    try {
-        const response = await axios.post(
-        ENDPOINT + '/post/new',
-        { title, content }
-        );
 
-        return response;
-    } catch ( error ) {
-        console.log( error );
-    }
-    return false;
+    await axios.post(
+        ENDPOINT + '/post/new',
+        { 'title': title, 'content': content }
+        );
 }
 
 /**
  * 글을 얻습니다. 10개
  * @param {String} email 
  * @param {String} passwd 
- * @returns 만약 오류가 발생하였을 경우 false 아닐경우 response 을 반환합니다.
+ * @returns axios.Promise 
  */
 
-export async function showPosts( 
+export function showPosts( 
 ) {
-    try {
-        const response = await axios.post(
+    return axios.get(
         ENDPOINT + '/post/show',
-        { email, passwd }
         );
-        return response;
-    } catch ( error ) {
-        console.log( error );
-    }
-    return false;
 }

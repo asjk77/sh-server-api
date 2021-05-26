@@ -9,5 +9,5 @@
 // Description : SERVVER_CONFIG
 
 // SETUP ServerAddress;
-const SERVER_ADDRESS = undefined;
+const SERVER_ADDRESS = 'http://192.168.0.35:4000';
 export const ENDPOINT = SERVER_ADDRESS || 'http://localhost:4000';
